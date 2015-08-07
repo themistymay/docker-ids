@@ -1,0 +1,20 @@
+elasticsearch:
+  build: elasticsearch/
+  ports:
+    - "9200:9200"
+
+logstash:
+  build: logstash/
+  links:
+    - elasticsearch
+  ports:
+    - "5000:5000"
+    - "5001:5001"
+
+kibana:
+  build: kibana/
+  ports:
+    - "8080:80"
+  links:
+    - elasticsearch
+    - logstash
