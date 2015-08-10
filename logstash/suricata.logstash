@@ -8,6 +8,10 @@ input {
     type => "eve-json"
     add_field => ["engine", "suricata"]
   }
+  courier {
+      port => 12345
+      transport => "tcp"
+  }
 }
 
 filter {

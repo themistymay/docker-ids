@@ -10,11 +10,21 @@ logstash:
   ports:
     - "5000:5000"
     - "5001:5001"
+    - "12345:12345"
 
 kibana:
   build: kibana/
   ports:
     - "8080:80"
+  links:
+    - elasticsearch
+    - logstash
+
+suricata:
+  build: suricata/
+  net: host
+  environment:
+    - INTERFACE=eth1
   links:
     - elasticsearch
     - logstash

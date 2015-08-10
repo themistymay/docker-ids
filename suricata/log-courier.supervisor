@@ -1,0 +1,2 @@
+[program:log-courier]
+command=log-courier -config="/etc/log-courier/log-courier.conf"

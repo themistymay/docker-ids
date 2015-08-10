@@ -16,4 +16,9 @@ RUN apt-get install -y logstash && \
 ADD logstash.supervisor /etc/supervisor/conf.d/logstash.conf
 ADD suricata.logstash /etc/logstash/suricata.conf
 
+RUN /opt/logstash/bin/plugin install logstash-input-courier
+#RUN /opt/logstash/bin/plugin install logstash-output-courier
+
+#RUN mkdir -p /opt/logstash/ssl
+
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
