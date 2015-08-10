@@ -25,7 +25,6 @@ suricata:
   net: host
   environment:
     - INTERFACE=eth1
-    - HOST_UID=$(id -u)
   links:
     - elasticsearch
     - logstash

@@ -40,7 +40,7 @@ ADD log-courier.conf /etc/log-courier/log-courier.conf
 # COPY entrypoint.sh /tmp/entrypoint.sh
 # RUN chmod +x /tmp/entrypoint.sh
 
-RUN INTERFACE=$(ifconfig -a | egrep -o '^[a-z0-9]+' | grep -v docker | grep -v lo | head -n1)
+#RUN INTERFACE=$(ifconfig -a | egrep -o '^[a-z0-9]+' | grep -v docker | grep -v lo | head -n1)
 #
 # CMD ["/tmp/entrypoint.sh"]
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]

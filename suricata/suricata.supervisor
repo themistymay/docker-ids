@@ -1,5 +1,5 @@
 [program:suricata]
-command=suricata -c /etc/suricata/suricata.yaml -k none -i ${INTERFACE} --pidfile /var/run/suricata.pid
+command=suricata -c /etc/suricata/suricata.yaml -k none -i eth1 --pidfile /var/run/suricata.pid
 stdout_logfile=/dev/fd/1
 stdout_logfile_maxbytes=0
 stderr_logfile=/dev/fd/1

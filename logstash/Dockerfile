@@ -1,7 +1,7 @@
 FROM themistymay/ubuntu:java8
 
 RUN apt-get update
-RUN apt-get install -y supervisor
+RUN apt-get install -y supervisor curl
 
 # Get Logstash
 RUN \
@@ -13,11 +13,15 @@ RUN \
 RUN apt-get install -y logstash && \
     apt-get clean
 
-ADD logstash.supervisor /etc/supervisor/conf.d/logstash.conf
-ADD suricata.logstash /etc/logstash/suricata.conf
-
 RUN /opt/logstash/bin/plugin install logstash-input-courier
 #RUN /opt/logstash/bin/plugin install logstash-output-courier
+
+RUN curl -O "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz"
+RUN gzip -d GeoLiteCity.dat.gz
+RUN mv GeoLiteCity.dat /opt/logstash/GeoLiteCity.dat
+
+ADD logstash.supervisor /etc/supervisor/conf.d/logstash.conf
+ADD suricata.logstash /etc/logstash/suricata.conf
 
 #RUN mkdir -p /opt/logstash/ssl
 
