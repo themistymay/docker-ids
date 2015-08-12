@@ -1,6 +1,2 @@
 [program:log-courier]
 command=log-courier -config="/etc/log-courier/log-courier.conf"
-stdout_logfile=/dev/fd/1
-stdout_logfile_maxbytes=0
-stderr_logfile=/dev/fd/1
-stderr_logfile_maxbytes=0
