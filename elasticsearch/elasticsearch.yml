@@ -1,0 +1,11 @@
+path:
+  data: /data/data
+  logs: /data/log
+  plugins: /data/plugins
+  work: /data/work
+cluster:
+  name: pxes
+http:
+  cors.enabled: true
+script:
+  disable_dynamic: false
