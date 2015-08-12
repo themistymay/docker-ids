@@ -2,6 +2,8 @@ elasticsearch:
   build: elasticsearch/
   ports:
     - "9200:9200"
+  volumes:
+    - ./data/elasticsearch:/data
 
 logstash:
   build: logstash/
