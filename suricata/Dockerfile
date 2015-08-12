@@ -37,8 +37,8 @@ ADD log-courier.supervisor /etc/supervisor/conf.d/log-courier.conf
 RUN mkdir -p /etc/log-courier
 ADD log-courier.conf /etc/log-courier/log-courier.conf
 
-# COPY entrypoint.sh /tmp/entrypoint.sh
-# RUN chmod +x /tmp/entrypoint.sh
+COPY entrypoint.sh /tmp/entrypoint.sh
+RUN chmod a+x /tmp/entrypoint.sh
 
 #RUN INTERFACE=$(ifconfig -a | egrep -o '^[a-z0-9]+' | grep -v docker | grep -v lo | head -n1)
 #
