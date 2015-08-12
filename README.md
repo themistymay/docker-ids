@@ -10,3 +10,6 @@
 
 #### Stack
 ``` docker-compose up ```
+
+### THANKS
+Thanks go out to quite a few people for each component is based on other projects. I'll snag a list and give credit where credit is due.
