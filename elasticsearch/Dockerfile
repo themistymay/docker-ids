@@ -17,9 +17,10 @@ ADD elasticsearch.supervisor /etc/supervisor/conf.d/elasticsearch.conf
 # Move over the elasticsearch config
 ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 
+# Install Head plugin: http://mobz.github.io/elasticsearch-head/
+RUN /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
+
 # Define mountable directories.
 VOLUME ["/data"]
-
-EXPOSE 9200
 
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
