@@ -14,8 +14,8 @@ logstash:
     - "5001:5001"
     - "12345:12345"
 
-kibana:
-  build: kibana/
+kibana4:
+  build: kibana4/
   ports:
     - "80:80"
   links:
